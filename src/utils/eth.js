@@ -7,9 +7,17 @@ export async function currentTokenSupply() {
   const block = await axios.get(
     `https://api.etherscan.io/v2/api?chainid=1&module=proxy&action=eth_getBlockByNumber&boolean=false&apikey=${config.ETHERSCAN_API_KEY}`,
   );
+  if (block.status === "0") {
+    return false;
+  }
+
   const res = await axios.get(
     `https://api.etherscan.io/v2/api?chainid=1&module=stats&action=tokensupply&contractaddress=${token}&apikey=${config.ETHERSCAN_API_KEY}`,
   );
+  if (block.status === "0") {
+    return false;
+  }
+
   return {
     block: Number(block.data.result.number),
     timestamp: Number(block.data.result.timestamp) * 1000,

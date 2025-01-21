@@ -14,17 +14,23 @@ export default {
     let reseth = getCache(CACHE_TOKEN.eth, config.CACHE_DURATION);
     if (!reseth) {
       reseth = await eth(CHAINS.eth);
-      setCache(CACHE_TOKEN.eth, reseth);
+      if (reseth !== false) {
+        setCache(CACHE_TOKEN.eth, reseth);
+      }
     }
     let resksm = getCache(CACHE_TOKEN.kusama, config.CACHE_DURATION);
     if (!resksm) {
       resksm = await parachain(CHAINS.kusama);
-      setCache(CACHE_TOKEN.kusama, resksm);
+      if (resksm !== false) {
+        setCache(CACHE_TOKEN.kusama, resksm);
+      }
     }
     let respol = getCache(CACHE_TOKEN.polkadot, config.CACHE_DURATION);
     if (!respol) {
       respol = await parachain(CHAINS.polkadot);
-      setCache(CACHE_TOKEN.polkadot, respol);
+      if (respol !== false) {
+        setCache(CACHE_TOKEN.polkadot, respol);
+      }
     }
 
     const sumArchive = Object.values(config.ARCHIVE_DATA).reduce(
