@@ -40,10 +40,7 @@ export default {
       result: {
         archive: {
           chains: { ...config.ARCHIVE_DATA },
-          sum: Object.values(config.ARCHIVE_DATA).reduce(
-            (accumulator, currentValue) => accumulator + currentValue.value,
-            0,
-          ),
+          sum: sumArchive,
         },
         current: {
           chains: { ethereum: reseth, kusama: resksm, polkadot: respol },
