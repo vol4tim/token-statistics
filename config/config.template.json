@@ -1,0 +1,25 @@
+{
+  "SERVER": {
+    "HOST": "0.0.0.0",
+    "PORT": "4000",
+    "SSL_ENABLE": false,
+    "SSL": {
+      "key": "",
+      "cer": ""
+    }
+  },
+  "ETHERSCAN_API_KEY": "",
+  "CACHE_DURATION": 86400000,
+  "ARCHIVE_DATA": {
+    "ethereum": {
+      "block": 18908895,
+      "timestamp": 1704067211,
+      "value": 1915498093317524
+    },
+    "kusama": {
+      "block": 4750872,
+      "timestamp": 1704052806,
+      "value": 974851806150808
+    }
+  }
+}
